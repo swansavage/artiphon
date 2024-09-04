@@ -11,46 +11,49 @@ This repository contains custom code that enhances your Shopify theme. If a futu
 
 ### Step 1: Backup Your Theme (Optional but Recommended)
 
-Before making any changes, it's always a good idea to backup your current theme.
+Before making any changes, it's always a good idea to backup your current theme:
 
 1. From your Shopify Admin, go to **Online Store** > **Themes**.
 2. In your live theme, click the **Actions** dropdown and select **Duplicate** to create a backup.
 
-### Step 2: Add `custom-scripts.js` to the Assets Folder
+### Step 2: Check for Existing `custom-scripts.js` in the Assets Folder
 
-1. Download the `custom-scripts.js` file from this repository.
-2. In your Shopify Admin, go to **Online Store** > **Themes**.
-3. Find your live theme and click **Actions** > **Edit code**.
-4. In the **Assets** folder, click **Add a new asset**.
-5. Upload the `custom-scripts.js` file.
+1. In your Shopify Admin, go to **Online Store** > **Themes** > **Actions** > **Edit code**.
+2. In the **Assets** folder, check if there is already a file named `custom-scripts.js`.
+   - If it exists, click on it and go to Step 3.
+   - If it doesn't exist, proceed to the next step to create it.
 
-### Step 3: Add the `media-with-text.liquid` File to the Sections Folder
+### Step 3: Add or Update `custom-scripts.js` in the Assets Folder
 
-1. Download the `media-with-text.liquid` file from this repository.
-2. In the **Sections** folder, look for the `media-with-text.liquid` file.
-3. Replace the existing content of `media-with-text.liquid` with the content from the file you downloaded.
-   - This ensures the custom video controls functionality works properly with the JavaScript code.
+1. If `custom-scripts.js` does not already exist, click **Add a new asset**.
+2. In the popup, select **Create a blank file**, name it `custom-scripts.js`, and click **Add asset**.
+3. Copy the code from the `custom-scripts.js` file in this repository.
+4. Paste the code into the `custom-scripts.js` file in your Shopify Admin and click **Save**.
 
-### Step 4: Ensure `custom-scripts.js` is Linked to Your Theme
+### Step 4: Update the `media-with-text.liquid` File in the Sections Folder
 
-To make sure the custom script is loaded:
+1. In your Shopify Admin, go to **Online Store** > **Themes** > **Edit code**.
+2. In the **Sections** folder, find the `media-with-text.liquid` file.
+3. Copy the entire code from the `media-with-text.liquid` file in this repository.
+4. Paste the copied code into the `media-with-text.liquid` file in your Shopify Admin, replacing any existing code, then click **Save**.
+
+### Step 5: Link the `custom-scripts.js` File to Your Theme
 
 1. In your Shopify Admin, go to **Online Store** > **Themes** > **Edit code**.
 2. In the **layout** folder, open the `theme.liquid` file.
-3. Scroll down to the closing `</body>` tag.
-4. Just above the closing `</body>` tag, add the following line to include the custom JavaScript file:
+3. Scroll down to just above the closing `</body>` tag.
+4. Add this line of code to ensure the custom script is loaded:
    ```html
    <script src="{{ 'custom-scripts.js' | asset_url }}" defer></script>
    ```
+5. Click **Save**.
 
-### Step 5: Testing the Functionality
+### Step 6: Test the Custom Code
 
-Once the files are uploaded and linked:
+1. Visit your store and navigate to a page where the media section is used.
+2. Verify that videos autoplay and the mute/unmute functionality works correctly.
+3. In the Shopify Customize editor, you should now see options to toggle video controls on or off.
 
-1. Visit your store's front end and navigate to a page where the media section is used.
-2. Ensure the videos autoplay when they come into view and the mute/unmute functionality works as expected.
-3. In the Customize mode, you can now toggle the video controls on or off.
+### Additional Information:
 
-### Additional Notes:
-
-In the Customize section of your Shopify Admin, when editing a page, you will now see an option to toggle video controls on or off in the media section. This setting is defaulted to "false" thanks to the `media-with-text.liquid` customization, meaning the controls will not show unless the box it toggled on.
+The customization to the media-with-text.liquid file allows you to toggle video controls directly in Shopify’s Customize mode. This functionality won't be affected by theme updates, but ensure you follow these steps whenever there is a theme update to recover any overwritten custom code.
