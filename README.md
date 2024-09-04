@@ -56,4 +56,4 @@ Before making any changes, it's always a good idea to backup your current theme:
 
 ### Additional Information:
 
-The customization to the `media-with-text.liquid` file allows you to toggle video controls directly in Shopify’s Customize mode. This functionality won't be affected by theme updates, but ensure you follow these steps whenever there is a theme update to recover any overwritten custom code.
+In the Customize section of your Shopify Admin, when editing a page, you will now see an option to toggle video controls on or off in the media section. This setting is defaulted to "false" thanks to the media-with-text.liquid customization, meaning the controls will not show unless the box it toggled on.
