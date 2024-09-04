@@ -1,52 +1,56 @@
-# Custom Scripts and Code for Your Shopify Store
+# Custom Code Recovery Instructions
 
-Welcome! This repository contains all the custom code files and snippets used on your Shopify store. These are important for maintaining custom functionality, such as custom JavaScript features, that might get removed or overwritten during theme updates.
+This repository contains custom code that enhances your Shopify theme. If a future theme update overwrites the customizations, follow these steps to restore the custom functionality.
 
-## Why Do You Need This?
+## Files in This Repository:
 
-When your Shopify theme gets updated, any custom changes like these scripts or snippets may be lost. This repository ensures that you can recover and re-install the custom functionality easily without having to rewrite the code.
+1. `custom-scripts.js` - Custom JavaScript for video functionality (mute/unmute, autoplay, etc.).
+2. `media-with-text.liquid` - Modified Liquid template for media sections, enabling additional video controls customization.
 
----
+## Instructions for Restoring Custom Code After a Theme Update:
 
-## How to Re-Install Custom Code After a Theme Update
+### Step 1: Backup Your Theme (Optional but Recommended)
 
-Follow these steps whenever your theme is updated and you need to re-install custom code:
+Before making any changes, it's always a good idea to backup your current theme.
 
-### 1. Access Your Shopify Admin Panel
+1. From your Shopify Admin, go to **Online Store** > **Themes**.
+2. In your live theme, click the **Actions** dropdown and select **Duplicate** to create a backup.
 
-1. Log in to your Shopify admin.
-2. In the sidebar, go to **Online Store > Themes**.
+### Step 2: Add `custom-scripts.js` to the Assets Folder
 
-### 2. Open the Theme Code Editor
+1. Download the `custom-scripts.js` file from this repository.
+2. In your Shopify Admin, go to **Online Store** > **Themes**.
+3. Find your live theme and click **Actions** > **Edit code**.
+4. In the **Assets** folder, click **Add a new asset**.
+5. Upload the `custom-scripts.js` file.
 
-1. On the Themes page, find your current theme and click the **Actions** dropdown.
-2. Select **Edit Code**.
+### Step 3: Add the `media-with-text.liquid` File to the Sections Folder
 
-### 3. Add the Custom JavaScript
+1. Download the `media-with-text.liquid` file from this repository.
+2. In the **Sections** folder, look for the `media-with-text.liquid` file.
+3. Replace the existing content of `media-with-text.liquid` with the content from the file you downloaded.
+   - This ensures the custom video controls functionality works properly with the JavaScript code.
 
-1. In the list of theme files, look for a file named **custom-scripts.js**. If it doesn’t exist, create a new file:
-   - Scroll to the **Assets** folder.
-   - Click **Add a new asset**.
-   - Select **Create a blank file** and name it `custom-scripts.js`.
-2. Copy the content from the `custom-scripts.js` file in this repository.
-3. Paste the code into the `custom-scripts.js` file in your Shopify theme.
-4. Save the file.
+### Step 4: Ensure `custom-scripts.js` is Linked to Your Theme
 
-### 4. Link the JavaScript File
+To make sure the custom script is loaded:
 
-1. Scroll to the **layout/theme.liquid** file in the code editor.
-2. Look for the `</body>` tag towards the end of the file.
-3. Just before the `</body>` tag, add the following line to link your custom JavaScript:
-
+1. In your Shopify Admin, go to **Online Store** > **Themes** > **Edit code**.
+2. In the **layout** folder, open the `theme.liquid` file.
+3. Scroll down to the closing `</body>` tag.
+4. Just above the closing `</body>` tag, add the following line to include the custom JavaScript file:
    ```html
    <script src="{{ 'custom-scripts.js' | asset_url }}"></script>
    ```
 
-4. Save the changes to the theme.liquid file.
+### Step 5: Testing the Functionality
 
-### 5. Test Your Site
+Once the files are uploaded and linked:
 
-Once you’ve completed the steps above:
+1. Visit your store's front end and navigate to a page where the media section is used.
+2. Ensure the videos autoplay when they come into view and the mute/unmute functionality works as expected.
+3. In the Customize mode, you can now toggle the video controls on or off.
 
-1. Go to your store’s front end and check if the custom functionality is working properly (e.g., video mute/unmute behavior).
-2. If something isn’t working as expected, double-check that the code is correctly added to the right files.
+### Additional Notes:
+
+In the Customize section of your Shopify Admin, when editing a page, you will now see an option to toggle video controls on or off in the media section. This setting is defaulted to "false" thanks to the media-with-text.liquid customization, meaning the controls will not show unless the box it toggled on.
