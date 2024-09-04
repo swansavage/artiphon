@@ -40,7 +40,7 @@ To make sure the custom script is loaded:
 3. Scroll down to the closing `</body>` tag.
 4. Just above the closing `</body>` tag, add the following line to include the custom JavaScript file:
    ```html
-   <script src="{{ 'custom-scripts.js' | asset_url }}"></script>
+   <script src="{{ 'custom-scripts.js' | asset_url }}" defer></script>
    ```
 
 ### Step 5: Testing the Functionality
