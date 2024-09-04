@@ -53,4 +53,4 @@ Once the files are uploaded and linked:
 
 ### Additional Notes:
 
-In the Customize section of your Shopify Admin, when editing a page, you will now see an option to toggle video controls on or off in the media section. This setting is defaulted to "false" thanks to the media-with-text.liquid customization, meaning the controls will not show unless the box it toggled on.
+In the Customize section of your Shopify Admin, when editing a page, you will now see an option to toggle video controls on or off in the media section. This setting is defaulted to "false" thanks to the `media-with-text.liquid` customization, meaning the controls will not show unless the box it toggled on.
